@@ -81,10 +81,22 @@ class Enemy{
     }
 }
 
+const arrayTower : Tower[] = new Array(10)
+
+const arrayEnemy : Enemy[] = new Array(10)
+
 let Tower1 = new Tower("A",3,1,1,5)
 let Enemy1 = new Enemy("Goblin",12)
 
-while(Enemy1.getHealthPoints() > 0){
-    Enemy1.TakeDamage(Tower1.Attack())
-    console.log(Enemy1.getHealthPoints())
+PutTower(Tower1, 11)
+console.log(arrayTower)
+
+function PutTower(tower : Tower, position : number) : void{
+    if(position < 1 || position > 10){
+        console.log("Número da casa inválida!")
+        return
+    }else{
+    arrayTower[position - 1] = tower
+    return
+    }
 }
